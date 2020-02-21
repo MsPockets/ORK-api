@@ -1,4 +1,4 @@
-<% project_name = 'potato-api' %>
+<% project_name = 'ork-api' %>
 
 default: &default
   adapter: postgresql
