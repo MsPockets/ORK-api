@@ -2,5 +2,6 @@
 
 class User < ApplicationRecord
   include Authentication
-  has_many :examples
+  has_many :attendances
+  has_many :awards
 end
