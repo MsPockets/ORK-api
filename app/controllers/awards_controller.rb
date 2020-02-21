@@ -46,6 +46,6 @@ class AwardsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def award_params
-      params.require(:award).permit(:type, :name)
+      params.require(:award).permit(:level, :name)
     end
 end

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/examples" \
+curl "http://localhost:4741/attendances" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

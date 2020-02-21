@@ -1,4 +1,3 @@
 class AwardSerializer < ActiveModel::Serializer
-  attributes :id, :type, :name
-  has_one :persona
+  attributes :id, :level, :name
 end
