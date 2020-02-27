@@ -52,7 +52,6 @@ class UsersController < ProtectedController
     render json: @users
   end
 
-
   private
 
   def user_creds

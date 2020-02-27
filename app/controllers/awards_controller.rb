@@ -1,10 +1,9 @@
-class AwardsController < ApplicationController
+class AwardsController < OpenReadController
   before_action :set_award, only: [:show, :update, :destroy]
 
   # GET /awards
   def index
     @awards = Award.all
-
     render json: @awards
   end
 
@@ -15,10 +14,9 @@ class AwardsController < ApplicationController
 
   # POST /awards
   def create
-    @award = Award.new(award_params)
-
+    @award = current_user.awards.build(award_params)
     if @award.save
-      render json: @award, status: :created, location: @award
+      render json: @award, status: :created
     else
       render json: @award.errors, status: :unprocessable_entity
     end
@@ -36,6 +34,7 @@ class AwardsController < ApplicationController
   # DELETE /awards/1
   def destroy
     @award.destroy
+    head :no_content
   end
 
   private
@@ -46,6 +45,6 @@ class AwardsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def award_params
-      params.require(:award).permit(:level, :name)
+      params.require(:award).permit(:level, :name, :id)
     end
 end
