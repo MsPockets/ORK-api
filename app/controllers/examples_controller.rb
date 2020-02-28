@@ -52,7 +52,7 @@ class ExamplesController < OpenReadController
   end
 
   def example_params
-    params.require(:award).permit()
+    params.require().permit()
   end
 
   private :set_example, :example_params

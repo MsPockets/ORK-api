@@ -3,7 +3,7 @@ class AwardsController < OpenReadController
 
   # GET /awards
   def index
-    @awards = Award.all
+    @awards = current_user.awards.all
     render json: @awards
   end
 
@@ -40,7 +40,7 @@ class AwardsController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_award
-      @award = Award.find(params[:id])
+      @award = current_user.awards.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
